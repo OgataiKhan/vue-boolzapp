@@ -1,9 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Boolzapp</title>
+  <!-- Google font: Lato -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+  <!-- /Google font: Lato -->
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <!-- /Font Awesome -->
@@ -11,11 +17,61 @@
   <link rel="stylesheet" href="css/style.css">
   <!-- /My css -->
 </head>
+
 <body>
   <div id="app" v-cloak>
     <div id="page-bg" class="flex justify-center align-center">
-      <div class="container">
-        prova
+      <div class="container flex">
+        <!-- Navigation sidebar -->
+        <div class="sidebar">
+          <!-- Header with user info -->
+          <header class="person-bar flex justify-between align-center">
+            <div class="flex">
+              <div class="header-avatar">
+                <img :src="userData.avatar" :alt="userData.username">
+              </div>
+              <h1 class="user-details flex align-center">{{ userData.username }}</h1>
+            </div>
+            <ul class="header-icons flex">
+              <li><i class="fa-solid fa-circle-notch"></i></li>
+              <li><i class="fa-solid fa-message"></i></li>
+              <li><i class="fa-solid fa-ellipsis-vertical"></i></li>
+            </ul>
+          </header>
+          <!-- /Header with user info -->
+          <div class="notifications"></div>
+          <div class="chat-search"></div>
+          <div class="contacts"></div>
+        </div>
+        <!-- /Navigation sidebar -->
+        <!-- Chat -->
+        <main>
+          <!-- Header with interlocutor info -->
+          <header class="person-bar flex justify-between align-center">
+            <div class="flex">
+              <div class="header-avatar">
+                <img :src="contacts[contactIndex].avatar" :alt="contacts[contactIndex].name">
+              </div>
+              <div class="person-details flex align-center">
+                <h2 class="current-contact-name">
+                  {{ contacts[contactIndex].name }}
+                </h2>
+                <p class="secondary-text">Ultimo accesso oggi alle 12:00</p>
+              </div>
+            </div>
+            <ul class="header-icons flex">
+              <li><i class="fa-solid fa-magnifying-glass"></i></li>
+              <li><i class="fa-solid fa-paperclip"></i></li>
+              <li><i class="fa-solid fa-ellipsis-vertical"></i></li>
+            </ul>
+          </header>
+          <!-- /Header with interlocutor info -->
+          <!-- Messages -->
+          <div class="chat-window"></div>
+          <!-- /Messages -->
+          <footer></footer>
+        </main>
+        <!-- /Chat -->
       </div>
     </div>
   </div>
@@ -27,4 +83,5 @@
   <script src="js/main.js"></script>
   <!-- /My js -->
 </body>
+
 </html>

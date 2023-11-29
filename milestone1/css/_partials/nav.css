@@ -1,6 +1,11 @@
 /* 
 ********
-NAV
+NAVIGATION SIDEBAR
 ********
 */
 
+.sidebar {
+  background-color: green;
+  width: 35%;
+  min-width: 300px;
+}

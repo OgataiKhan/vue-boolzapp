@@ -1,6 +1,14 @@
 /* 
 ********
-CHAT WINDOW
+CHAT
 ********
 */
 
+main {
+  background-color: yellow;
+  flex-grow: 1;
+}
+
+main > header {
+  border-left: 1px solid #D6D6D6;
+}
