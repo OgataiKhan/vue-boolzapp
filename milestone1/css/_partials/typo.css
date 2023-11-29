@@ -18,7 +18,9 @@ h3 {
 }
 
 header ul.header-icons li,
-.notification-bar .notification-icon {
+.notification-bar .notification-icon,
+.emoji,
+.audio-message {
   font-size: 1.4rem;
 }
 
@@ -29,6 +31,11 @@ header ul.header-icons li,
 
 .notification-bar .notification-icon {
   color: var(--bg-notifications);
+}
+
+.emoji,
+.audio-message {
+  color: var(--font-new-msg-icons);
 }
 
 .secondary-text {

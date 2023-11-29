@@ -7,8 +7,29 @@ CHAT
 main {
   background-color: yellow;
   flex-grow: 1;
+  flex-direction: column;
+  border-left: 1px solid #D6D6D6;
+  
 }
 
-main > header {
-  border-left: 1px solid #D6D6D6;
+/* main > header {
+} */
+
+main > footer {
+  background-color: var(--bg-chat-footer);
+  margin-top: auto;
+}
+
+#new-message-bar {
+  align-self: stretch;
+  flex-grow: 1;
+  border: none;
+  margin: 10px 0;
+  padding: 0 16px;
+  border-radius: 5px;
+}
+
+.emoji,
+.audio-message {
+  padding: 0 37px;
 }
