@@ -1,0 +1,13 @@
+/* 
+********
+COMMON
+********
+*/
+
+[v-cloak] {
+  display: none;
+}
+
+body {
+  background-color: green;
+}
