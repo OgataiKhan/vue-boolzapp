@@ -12,12 +12,9 @@ main {
   
 }
 
-/* main > header {
-} */
-
 main > footer {
   background-color: var(--bg-chat-footer);
-  margin-top: auto;
+  flex-shrink: 0;
 }
 
 #new-message-bar {
@@ -32,4 +29,43 @@ main > footer {
 .emoji,
 .audio-message {
   padding: 0 37px;
+}
+
+.chat-window {
+  flex-grow: 1;
+  background-image: url(../../img/mine.jpg);
+  padding: 55px 0;
+  flex-direction: column;
+  overflow-y: scroll;
+}
+
+.chat-box {
+  flex-direction: column;
+  min-width: 80%;
+  max-width: 90%;
+}
+
+.msg {
+  border-radius: 10px;
+  min-width: 300px;
+  max-width: 70%;
+  margin-bottom: 10px;
+}
+
+.sent {
+  background-color: var(--bg-msg-sent);
+  align-self: flex-end;
+}
+
+.received {
+  background-color: var(--bg-msg-received);
+  align-self: flex-start;
+}
+
+.msg .msg-text {
+  padding: 15px 17px 5px;
+}
+
+.msg .msg-time {
+  padding: 0 5px 5px;
 }

@@ -52,3 +52,13 @@ header ul.header-icons li,
   font-size: .875rem;
   color: var(--font-tertiary);
 }
+
+.msg .msg-text {
+  font-size: .875rem;
+}
+
+.msg .msg-time {
+  text-align: right;
+  color: var(--font-secondary);
+  font-size: 10px;
+}

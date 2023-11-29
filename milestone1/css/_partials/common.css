@@ -31,12 +31,12 @@ COMMON
 #page-bg {
   height: 100vh;
   background: linear-gradient(to bottom, var(--bg-upper) 145px, var(--bg-lower) 145px);
+  overflow-x: scroll;
 }
 
 .container {
   max-width: 1536px;
   width: 90%;
-  min-width: 600px;
   margin: 0 auto;
   height: calc(100vh - (2 * var(--container-vertical-gap)));
 }
