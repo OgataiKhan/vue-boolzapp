@@ -9,3 +9,12 @@ NAVIGATION SIDEBAR
   width: 35%;
   min-width: 300px;
 }
+
+.notification-bar {
+  background-color: var(--bg-notifications);
+  height: 80px;
+}
+
+.notification-bar .notification-icon {
+  background-color: var(--bg-nav);
+}

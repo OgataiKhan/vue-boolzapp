@@ -27,7 +27,7 @@
           <!-- Header with user info -->
           <header class="person-bar flex justify-between align-center">
             <div class="flex">
-              <div class="header-avatar">
+              <div class="header-avatar avatar">
                 <img :src="userData.avatar" :alt="userData.username">
               </div>
               <h1 class="user-details flex align-center">{{ userData.username }}</h1>
@@ -39,7 +39,17 @@
             </ul>
           </header>
           <!-- /Header with user info -->
-          <div class="notifications"></div>
+          <!-- Notification bar -->
+          <div class="notification-bar flex align-center">
+            <div class="notification-icon flex align-center justify-center">
+              <i class="fa-solid fa-bell-slash"></i>
+            </div>
+            <div class="notification-details flex">
+              <p>Ricevi notifiche di nuovi messaggi</p>
+              <p><a href="#">Attiva notifiche desktop</a></p>
+            </div>
+          </div>
+          <!-- /Notification bar -->
           <div class="chat-search"></div>
           <div class="contacts"></div>
         </div>
@@ -49,7 +59,7 @@
           <!-- Header with interlocutor info -->
           <header class="person-bar flex justify-between align-center">
             <div class="flex">
-              <div class="header-avatar">
+              <div class="header-avatar avatar">
                 <img :src="contacts[contactIndex].avatar" :alt="contacts[contactIndex].name">
               </div>
               <div class="person-details flex align-center">
