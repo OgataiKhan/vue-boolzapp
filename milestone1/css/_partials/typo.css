@@ -17,7 +17,8 @@ header ul.header-icons li,
   font-size: 1.4rem;
 }
 
-header ul.header-icons li {
+header ul.header-icons li,
+.chat-search-box .chat-search-icon {
   color: var(--font-secondary);
 }
 

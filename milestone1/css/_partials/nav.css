@@ -18,3 +18,22 @@ NAVIGATION SIDEBAR
 .notification-bar .notification-icon {
   background-color: var(--bg-nav);
 }
+
+.chat-search-box {
+  background-color: var(--bg-searchbar-container);
+  padding: 7px;
+}
+
+.chat-search-box .chat-search-icon {
+  background-color: var(--bg-nav);
+  border: 1px solid #F5F5F5;
+  border-right: none;
+  padding: 6px 30px;
+}
+
+#chat-searchbar {
+  flex: 1;
+  border: 1px solid #F5F5F5;
+  padding: 0.375rem 0.75rem;
+  line-height: 1.5;
+}
