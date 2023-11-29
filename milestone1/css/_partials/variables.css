@@ -7,7 +7,16 @@ VARIABLES
 /* #region */
 
 :root {
-  --font-primary: #000000; 
+  --bg-upper: #009688; 
+  --bg-lower: #DBDBD3; 
+  --bg-header: #EAEAEA; 
+  --bg-chat-footer: #F3EEEA; 
+  --bg-nav: #FFFFFF;
+  --bg-notifications: #8EDAFC;
+  --bg-msg-sent: #D5F9BA;
+  --bg-msg-received: #FFFFFF;
+  --font-primary: #000000;
+  --font-secondary: #B1B1B1;
 }
 
 /* #endregion */
