@@ -4,8 +4,6 @@ VARIABLES
 ********
 */
 
-/* #region */
-
 :root {
   --bg-upper: #009688; 
   --bg-lower: #DBDBD3; 
@@ -17,6 +15,5 @@ VARIABLES
   --bg-msg-received: #FFFFFF;
   --font-primary: #000000;
   --font-secondary: #B1B1B1;
+  --container-vertical-gap: 24px;
 }
-
-/* #endregion */

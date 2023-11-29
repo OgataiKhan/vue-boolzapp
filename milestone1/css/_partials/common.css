@@ -8,6 +8,36 @@ COMMON
   display: none;
 }
 
-body {
-  background-color: green;
+/* #region Utilities */
+
+.flex {
+  display: flex;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.align-center {
+  align-items: center;
+}
+
+/* #endregion */
+
+#page-bg {
+  height: 100vh;
+  background: linear-gradient(to bottom, var(--bg-upper) 145px, var(--bg-lower) 145px);
+}
+
+.container {
+  max-width: 1536px;
+  width: 90%;
+  min-width: 600px;
+  background-color: blue;
+  margin: 0 auto;
+  height: calc(100vh - (2 * var(--container-vertical-gap)));
 }
