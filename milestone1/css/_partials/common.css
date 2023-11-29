@@ -63,6 +63,7 @@ header {
 .notification-bar {
   padding-left: 20px;
   padding-right: 26px;
+  flex-shrink: 0;
 }
 
 .avatar,
@@ -70,6 +71,7 @@ header {
   margin-right: 20px;
   border-radius: 50%;
   overflow: hidden;
+  flex-shrink: 0;
 }
 
 .header-avatar,

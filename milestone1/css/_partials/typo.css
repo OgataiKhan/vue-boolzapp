@@ -12,6 +12,11 @@ h2 {
   font-weight: 400;
 }
 
+h3 {
+  font-size: 1.125rem;
+  font-weight: 400;
+}
+
 header ul.header-icons li,
 .notification-bar .notification-icon {
   font-size: 1.4rem;
@@ -27,6 +32,11 @@ header ul.header-icons li,
 }
 
 .secondary-text {
+  font-size: .75rem;
+  color: var(--font-secondary);
+}
+
+.tertiary-text {
   font-size: .75rem;
   color: var(--font-tertiary);
 }
