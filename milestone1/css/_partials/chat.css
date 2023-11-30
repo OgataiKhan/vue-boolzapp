@@ -39,7 +39,7 @@ main > footer {
   overflow-y: scroll;
 }
 
-.chat-box {
+.chat-list {
   flex-direction: column;
   min-width: 80%;
   max-width: 90%;
