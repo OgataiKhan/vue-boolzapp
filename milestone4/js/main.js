@@ -217,14 +217,5 @@ createApp({
         status: 'received'
       });
     },
-    // filterContacts() {
-    //   if (this.contactSearch.trim() !== '') {
-    //     return this.contacts.filter((contact) =>
-    //       contact.name.toLowerCase().includes(this.contactSearch.toLowerCase())
-    //     )
-    //   } else {
-    //     return this.contacts;
-    //   }
-    // }
   }
 }).mount('#app');
