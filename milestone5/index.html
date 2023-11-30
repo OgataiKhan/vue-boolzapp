@@ -117,7 +117,7 @@
                 </div>
                 <ul class="dropdown-menu" v-show="dropdownsShown[`${contactIndex}-${index}`]">
                   <li role="button">Message info</li>
-                  <li role="button">Delete message</li>
+                  <li role="button" @click="deleteMessage(contactIndex, index)">Delete message</li>
                 </ul>
                 <!-- Dropdown button & menu -->
               </li>

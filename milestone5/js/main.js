@@ -228,12 +228,17 @@ createApp({
     },
     // Toggle message menu dropdown
     toggleDropdown(contactIndex, messageIndex) {
-      let key = `${contactIndex}-${messageIndex}`;
+      const key = `${contactIndex}-${messageIndex}`;
       if (this.dropdownsShown[key]) {
-          this.dropdownsShown = {};
+        this.dropdownsShown = {};
       } else {
-          this.dropdownsShown = { [key]: true };
+        this.dropdownsShown = { [key]: true };
       }
-  }
+    },
+    // Message deletion
+    deleteMessage(contactIndex, messageIndex) {
+      this.contacts[contactIndex].messages.splice(messageIndex, 1);
+      this.dropdownsShown = {};
+    }
   }
 }).mount('#app');
