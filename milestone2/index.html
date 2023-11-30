@@ -61,7 +61,8 @@
           <!-- Contacts -->
           <div class="contact-box">
             <ul>
-              <li v-for="(contact, index) in contacts" class="person-bar contact-bar flex justify-between" :class="{ 'last-contact-bar': index === contacts.length - 1 }">
+              <li v-for="(contact, index) in contacts" class="person-bar contact-bar flex justify-between"
+                :class="{ 'last-contact-bar': index === contacts.length - 1, 'active-contact': index === contactIndex }">
                 <div class="flex">
                   <div class="contacts-avatar avatar">
                     <img :src="contact.avatar" :alt="contact.name">
@@ -105,21 +106,12 @@
           <!-- Messages -->
           <div class="chat-window flex align-center">
             <ul class="chat-list flex">
-              <!-- <li class="msg sent">
-                <p class="msg-text">Hai portato a spasso il cane?
+              <li v-for="(messageObj, index) in contacts[contactIndex].messages" class="msg"
+                :class="messageObj.status === 'sent' ? 'sent' : 'received'">
+                <p class="msg-text"> {{ messageObj.message }}
                 </p>
-                <p class="msg-time">15:30</p>
+                <p class="msg-time">{{ displayTime(messageObj.date) }}</p>
               </li>
-              <li class="msg sent">
-                <p class="msg-text">Ricordati di stendere i panni
-                </p>
-                <p class="msg-time">15:50</p>
-              </li>
-              <li class="msg received">
-                <p class="msg-text">Tutto fatto!
-                </p>
-                <p class="msg-time">16:15</p>
-              </li> -->
             </ul>
           </div>
           <!-- /Messages -->
@@ -140,6 +132,9 @@
     </div>
   </div>
 
+  <!-- Luxon -->
+  <script src="https://cdn.jsdelivr.net/npm/luxon@3.4.4/build/global/luxon.min.js"></script>
+  <!-- /Luxon -->
   <!-- Vue js -->
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   <!-- /Vue js -->

@@ -1,11 +1,14 @@
 'use strict';
 
+// Luxon
+const DateTime = luxon.DateTime;
+
+// Vue.js
 const { createApp } = Vue;
 
 createApp({
   data() {
     return {
-      message: 'Hello Vue!',
       userData: {
         username: 'Sofia',
         avatar: './img/avatar_io.jpg',
@@ -174,6 +177,11 @@ createApp({
           ],
         }
       ]
+    }
+  },
+  methods: {
+    displayTime(timestamp) {
+      return DateTime.fromFormat(timestamp, 'dd/MM/yyyy HH:mm:ss').toFormat('HH:mm');
     }
   }
 }).mount('#app');
