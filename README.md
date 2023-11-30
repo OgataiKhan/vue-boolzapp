@@ -23,3 +23,13 @@ In this milestone I introduce dymanic visualization of messages for each contact
 1. Use v-for to populate the chat with the messages of the active contact.  
 2. Add Luxon, create a method that reformats message times to show just the hours and minutes, use it to display the times in the message bubbles.  
 3. Create a method that changes the contactIndex to match its argument. Use v-on to invoke the method when clicking on a contact in the contact list. This changes the active contact and displays their message history in the chat window.
+
+### Milestone 3
+
+In this milestone I add the possibility to write new messages and have them appear in the chat window after pressing Enter. Each message sent will be followed by an "ok" reply one second later.
+
+1. Add a newMsg property and use v-model to attach it to the new message input field.
+2. Create sendMsg method that pushes the value of the input field into the messages array of the active contact along with the current time.
+3. Trigger the method when pressing Enter using v-on.
+4. Create autoResponse method which sends back an "ok" reply.
+5. Invoke autoResponse at the end of sendMsg after one second using setTimeout().
