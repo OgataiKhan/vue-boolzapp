@@ -54,3 +54,9 @@ Part 1:
 5. Invoke the method on click of the angle symbol with v-on.
 6. Create deleteMessage method that uses splice to remove a message from its array.
 7. Use v-on to trigger the function when clicking the "Delete message" button, passing it the appropriate arguments.
+
+Part 2:
+
+1. Create getLastMessageTime method that returns nothing if no messages are present for a given contact, the time of the last message if was sent today, and the date of the last message if it was sent before today. Use Luxon to manage dates and times.
+2. Create cropMessage method that crops longer messages in order to display them in smaller spaces.
+3. Display text and time of the last message for each contact in the contact list.
