@@ -43,6 +43,14 @@ NAVIGATION SIDEBAR
   overflow-y: auto;
 }
 
+.contact-bar {
+  border-bottom: 1px solid #f6f4f4;
+}
+
+.last-contact-bar {
+  border-bottom: none;
+}
+
 .contacts-avatar {
   width: 60px;
 }
