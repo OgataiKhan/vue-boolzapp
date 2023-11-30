@@ -1,0 +1,74 @@
+/* 
+********
+NAVIGATION SIDEBAR
+********
+*/
+
+.sidebar {
+  width: 35%;
+  min-width: 300px;
+  flex-direction: column;
+  background-color: var(--bg-nav);
+}
+
+.notification-bar {
+  background-color: var(--bg-notifications);
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.notification-bar .notification-icon {
+  background-color: var(--bg-nav);
+}
+
+.chat-search-box {
+  background-color: var(--bg-searchbar-container);
+  padding: 7px;
+}
+
+.chat-search-box .chat-search-icon {
+  background-color: var(--bg-nav);
+  border: 1px solid #F5F5F5;
+  border-right: none;
+  padding: 6px 30px;
+}
+
+#chat-searchbar {
+  flex: 1;
+  border: 1px solid #F5F5F5;
+  padding: 0.375rem 0.75rem;
+  line-height: 1.5;
+}
+
+.sidebar .contact-box {
+  overflow-y: auto;
+}
+
+.contact-bar {
+  border-bottom: 1px solid #f6f4f4;
+}
+
+.last-contact-bar {
+  border-bottom: none;
+}
+
+.contacts-avatar {
+  width: 60px;
+}
+
+.contact-box ul li.person-bar {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.contact-box ul li.person-bar:hover {
+  background-color: #f3f5f5;
+}
+
+.contact-box ul li.person-bar.active-contact {
+  background-color: #E9EBEB;
+}
+
+.contact-box ul li.person-bar h3 {
+  padding-bottom: 2px;
+}
