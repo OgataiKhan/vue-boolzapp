@@ -9,6 +9,7 @@ NAVIGATION SIDEBAR
   min-width: 300px;
   flex-direction: column;
   background-color: var(--bg-nav);
+  flex-shrink: 0;
 }
 
 .notification-bar {

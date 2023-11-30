@@ -8,7 +8,6 @@ main {
   flex-grow: 1;
   flex-direction: column;
   border-left: 1px solid #D6D6D6;
-  
 }
 
 main > footer {
@@ -47,8 +46,10 @@ main > footer {
 .msg {
   border-radius: 10px;
   min-width: 300px;
-  max-width: 70%;
+  max-width: 50%;
   margin-bottom: 10px;
+  word-break: break-all;
+  overflow-wrap: break-word;
 }
 
 .sent {
