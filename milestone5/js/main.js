@@ -9,9 +9,12 @@ const { createApp } = Vue;
 createApp({
   data() {
     return {
+      // Utility
       contactIndex: 0,
       newMsg: '',
       contactSearch: '',
+      dropdownsShown: {},
+      // Data
       userData: {
         username: 'Sofia',
         avatar: './img/avatar_io.jpg',
@@ -182,6 +185,7 @@ createApp({
     }
   },
   watch: {
+    // Chat search watcher
     contactSearch(searchString) {
       const searchLowerCase = searchString.toLowerCase();
       this.contacts.forEach(contact => {
@@ -190,15 +194,19 @@ createApp({
     },
   },
   methods: {
+    // Time formatting for display
     displayTime(timestamp) {
       return DateTime.fromFormat(timestamp, 'dd/MM/yyyy HH:mm:ss').toFormat('HH:mm');
     },
+    // Get current time for new messages
     getCurrentTime() {
       return DateTime.now().toFormat('dd/MM/yyyy HH:mm:ss');
     },
+    // Select contact
     changeChat(index) {
       this.contactIndex = index;
     },
+    // Send new message
     sendMsg() {
       if (this.newMsg.trim() !== '') {
         this.contacts[this.contactIndex].messages.push({
@@ -210,6 +218,7 @@ createApp({
         setTimeout(this.autoResponse, 1000);
       }
     },
+    // Get automatic response
     autoResponse() {
       this.contacts[this.contactIndex].messages.push({
         date: this.getCurrentTime(),
@@ -217,5 +226,14 @@ createApp({
         status: 'received'
       });
     },
+    // Toggle message menu dropdown
+    toggleDropdown(contactIndex, messageIndex) {
+      let key = `${contactIndex}-${messageIndex}`;
+      if (this.dropdownsShown[key]) {
+          this.dropdownsShown = {};
+      } else {
+          this.dropdownsShown = { [key]: true };
+      }
+  }
   }
 }).mount('#app');
