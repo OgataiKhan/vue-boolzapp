@@ -79,7 +79,7 @@
                     </h3>
                     <!-- /Name -->
                     <!-- Last message -->
-                    <p class="secondary-text">{{ cropMessage(contact.messages[contact.messages.length - 1].message) }}
+                    <p v-if="contact.messages.length !== 0" class="secondary-text">{{ cropMessage(contact.messages[contact.messages.length - 1].message) }}
                     </p>
                     <!-- /Last message -->
                   </div>
