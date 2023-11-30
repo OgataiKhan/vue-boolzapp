@@ -47,6 +47,8 @@ NAVIGATION SIDEBAR
 
 .contact-bar {
   border-bottom: 1px solid #f6f4f4;
+  word-break: break-all;
+  overflow-wrap: break-word;
 }
 
 .last-contact-bar {
@@ -72,4 +74,8 @@ NAVIGATION SIDEBAR
 
 .contact-box ul li.person-bar h3 {
   padding-bottom: 2px;
+}
+
+.contact-bar .last-msg-time {
+  flex-shrink: 0;
 }

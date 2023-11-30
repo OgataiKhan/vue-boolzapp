@@ -239,6 +239,27 @@ createApp({
     deleteMessage(contactIndex, messageIndex) {
       this.contacts[contactIndex].messages.splice(messageIndex, 1);
       this.dropdownsShown = {};
+    },
+    // Get the time of the last message if sent today, otherwise, get the date
+    getLastMessageTime(contact) {
+      if (contact.messages.length === 0) {
+        return '';
+      }
+      const lastMessage = contact.messages[contact.messages.length - 1];
+      const messageTime = DateTime.fromFormat(lastMessage.date, 'dd/MM/yyyy HH:mm:ss');
+      if (messageTime.hasSame(DateTime.now(), 'day')) {
+        return messageTime.toFormat('HH:mm');
+      } else {
+        return messageTime.toFormat('dd/MM/yyyy');
+      }
+    },
+    // Crop message to display it in contact list
+    cropMessage(str) {
+      if (str.length > 46) {
+        return str.substring(0, 43) + '...';
+      } else {
+        return str;
+      }
     }
   }
 }).mount('#app');
