@@ -13,7 +13,9 @@ NAVIGATION SIDEBAR
 
 .notification-bar {
   background-color: var(--bg-notifications);
-  height: 80px;
+  /* height: 80px; */
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
 
 .notification-bar .notification-icon {
