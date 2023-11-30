@@ -11,6 +11,7 @@ createApp({
     return {
       contactIndex: 0,
       newMsg: '',
+      contactSearch: '',
       userData: {
         username: 'Sofia',
         avatar: './img/avatar_io.jpg',
@@ -180,6 +181,14 @@ createApp({
       ]
     }
   },
+  watch: {
+    contactSearch(searchString) {
+      const searchLowerCase = searchString.toLowerCase();
+      this.contacts.forEach(contact => {
+        contact.visible = contact.name.toLowerCase().includes(searchLowerCase);
+      });
+    },
+  },
   methods: {
     displayTime(timestamp) {
       return DateTime.fromFormat(timestamp, 'dd/MM/yyyy HH:mm:ss').toFormat('HH:mm');
@@ -202,11 +211,20 @@ createApp({
       }
     },
     autoResponse() {
-        this.contacts[this.contactIndex].messages.push({
-          date: this.getCurrentTime(),
-          message: 'ok',
-          status: 'received'
-        });
-    }
+      this.contacts[this.contactIndex].messages.push({
+        date: this.getCurrentTime(),
+        message: 'ok',
+        status: 'received'
+      });
+    },
+    // filterContacts() {
+    //   if (this.contactSearch.trim() !== '') {
+    //     return this.contacts.filter((contact) =>
+    //       contact.name.toLowerCase().includes(this.contactSearch.toLowerCase())
+    //     )
+    //   } else {
+    //     return this.contacts;
+    //   }
+    // }
   }
 }).mount('#app');
