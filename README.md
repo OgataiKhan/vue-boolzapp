@@ -40,3 +40,17 @@ In this milestone I add a contact search feature that dynamically filters the co
 
 1. Create a contactSearch property that tracks the content of the contact search bar with v-model.
 2. Use a watcher to dynamically toggle the visible property of users whose names don't include the current search string.
+
+### Milestone 5
+
+In this milestone I add a "delete message" feature. I also visualize the time and text of the last sent or received message for each contact in the contact list.
+
+Part 1:
+
+1. Create a button in the corner of each message bubble that will trigger the appearance of the dropdown menu. The button will only be visible when hovered.  
+2. Create the dropdown menu in html and css.
+3. Create a dropdownsShown property that will keep track of which dropdown should be open based on a set of coordinates.
+4. Create a toggleDropdown method that will close the dropdown if it's open. If it's not, it will open only that dropdown (closing any other open dropdowns if present).
+5. Invoke the method on click of the angle symbol with v-on.
+6. Create deleteMessage method that uses splice to remove a message from its array.
+7. Use v-on to trigger the function when clicking the "Delete message" button, passing it the appropriate arguments.
