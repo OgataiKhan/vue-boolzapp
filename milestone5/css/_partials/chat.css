@@ -50,6 +50,7 @@ main > footer {
   margin-bottom: 10px;
   word-break: break-all;
   overflow-wrap: break-word;
+  position: relative;
 }
 
 .sent {
@@ -68,4 +69,17 @@ main > footer {
 
 .msg .msg-time {
   padding: 0 5px 5px;
+}
+
+.dropdown-angle {
+  position: absolute;
+  right: 8px;
+  top: 4px;
+  color: var(--font-secondary);
+  font-size: 1.2rem;
+  opacity: 0;
+}
+
+.dropdown-angle:hover {
+  opacity: 1;
 }
