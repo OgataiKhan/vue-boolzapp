@@ -62,7 +62,7 @@
           <div class="contact-box">
             <ul>
               <li v-for="(contact, index) in contacts" class="person-bar contact-bar flex justify-between"
-                :class="{ 'last-contact-bar': index === contacts.length - 1 }" role="button" @click="changeChat(index)">
+                :class="{ 'last-contact-bar': index === contacts.length - 1, 'active-contact': index === contactIndex }" role="button" @click="changeChat(index)">
                 <div class="flex">
                   <div class="contacts-avatar avatar">
                     <img :src="contact.avatar" :alt="contact.name">
@@ -120,7 +120,7 @@
             <div class="emoji">
               <i class="fa-regular fa-face-smile"></i>
             </div>
-            <input v-model="newMsg" type="text" id="new-message-bar" placeholder="Scrivi un messaggio" aria-label="New message" @keyup.enter="sendMsg">
+            <input v-model="newMsg" type="text" id="new-message-bar" placeholder="Scrivi un messaggio" aria-label="New message" @keyup.enter="sendMsg()">
             <div class="audio-message">
               <i class="fa-solid fa-microphone"></i>
             </div>

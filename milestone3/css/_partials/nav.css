@@ -62,6 +62,10 @@ NAVIGATION SIDEBAR
 }
 
 .contact-box ul li.person-bar:hover {
+  background-color: #f3f5f5;
+}
+
+.contact-box ul li.person-bar.active-contact {
   background-color: #E9EBEB;
 }
 

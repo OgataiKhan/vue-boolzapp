@@ -184,19 +184,29 @@ createApp({
     displayTime(timestamp) {
       return DateTime.fromFormat(timestamp, 'dd/MM/yyyy HH:mm:ss').toFormat('HH:mm');
     },
+    getCurrentTime() {
+      return DateTime.now().toFormat('dd/MM/yyyy HH:mm:ss');
+    },
     changeChat(index) {
       this.contactIndex = index;
     },
     sendMsg() {
       if (this.newMsg.trim() !== '') {
-        const currentTime = DateTime.now().toFormat('dd/MM/yyyy HH:mm:ss');
         this.contacts[this.contactIndex].messages.push({
-          date: currentTime,
+          date: this.getCurrentTime(),
           message: this.newMsg,
           status: 'sent'
         });
         this.newMsg = '';
+        setTimeout(this.autoResponse, 1000);
       }
+    },
+    autoResponse() {
+        this.contacts[this.contactIndex].messages.push({
+          date: this.getCurrentTime(),
+          message: 'ok',
+          status: 'received'
+        });
     }
   }
 }).mount('#app');
