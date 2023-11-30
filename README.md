@@ -33,3 +33,10 @@ In this milestone I add the possibility to write new messages and have them appe
 3. Trigger the method when pressing Enter using v-on.
 4. Create autoResponse method which sends back an "ok" reply.
 5. Invoke autoResponse at the end of sendMsg after one second using setTimeout().
+
+### Milestone 4
+
+In this milestone I add a contact search feature that dynamically filters the contact list based on the string currently present in the searchbar.
+
+1. Create a contactSearch property that tracks the content of the contact search bar with v-model.
+2. Use a watcher to dynamically toggle the visible property of users whose names don't include the current search string.
