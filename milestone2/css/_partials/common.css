@@ -41,6 +41,10 @@ COMMON
   height: calc(100vh - (2 * var(--container-vertical-gap)));
 }
 
+[role="button"] {
+  cursor: pointer;
+}
+
 ul {
   list-style: none;
 }

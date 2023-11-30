@@ -182,6 +182,9 @@ createApp({
   methods: {
     displayTime(timestamp) {
       return DateTime.fromFormat(timestamp, 'dd/MM/yyyy HH:mm:ss').toFormat('HH:mm');
-    }
+    },
+    changeChat(index) {
+      this.contactIndex = index;
+  }
   }
 }).mount('#app');
