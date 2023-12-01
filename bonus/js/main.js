@@ -14,6 +14,7 @@ createApp({
       newMsg: '',
       contactSearch: '',
       currentDropdown: '',
+      mainHeaderDropdown: false,
       userStatus: '',
       // Data
       userData: {
@@ -289,6 +290,15 @@ createApp({
         this.userStatus = 'Nessun accesso precedente';
       }
     },
+    // Delete all messages with the active contact
+    deleteAllMsgs() {
+      this.contacts[this.contactIndex].messages = [];
+    },
+    // Delete conversation with the active contact and set contactIndex to 0
+    deleteChat() {
+      this.contacts.splice(this.contactIndex, 1);
+      this.contactIndex = 0;
+    }
   },
   mounted() {
     // Update active contact status for the first time after mounting the application

@@ -17,14 +17,14 @@ h3 {
   font-weight: 400;
 }
 
-header ul.header-icons li,
+header ul.header-icons li i,
 .notification-bar .notification-icon,
 .emoji,
 .audio-message {
   font-size: 1.4rem;
 }
 
-header ul.header-icons li,
+header ul.header-icons li i,
 .chat-search-box .chat-search-icon {
   color: var(--font-secondary);
 }

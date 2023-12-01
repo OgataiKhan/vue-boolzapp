@@ -68,6 +68,10 @@ header {
   background-color: var(--bg-header);
 }
 
+.header-icons li:hover {
+  cursor: pointer;
+}
+
 .person-bar,
 .notification-bar {
   padding-left: 20px;

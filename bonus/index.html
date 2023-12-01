@@ -111,7 +111,13 @@
             <ul class="header-icons flex">
               <li><i class="fa-solid fa-magnifying-glass"></i></li>
               <li><i class="fa-solid fa-paperclip"></i></li>
-              <li><i class="fa-solid fa-ellipsis-vertical"></i></li>
+              <li @click="mainHeaderDropdown = !mainHeaderDropdown">
+                <i class="fa-solid fa-ellipsis-vertical"></i>
+                <ul v-show="mainHeaderDropdown" class="dropdown-menu-header">
+                  <li @click="deleteAllMsgs()" role="button">Elimina messaggi</li>
+                  <li @click="deleteChat()" role="button">Elimina chat</li>
+                </ul>
+              </li>
             </ul>
           </header>
           <!-- /Header with interlocutor info -->
