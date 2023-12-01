@@ -13,7 +13,7 @@ createApp({
       contactIndex: 0,
       newMsg: '',
       contactSearch: '',
-      dropdownsShown: {},
+      currentDropdown: '',
       // Data
       userData: {
         username: 'Sofia',
@@ -229,16 +229,12 @@ createApp({
     // Toggle message menu dropdown
     toggleDropdown(contactIndex, messageIndex) {
       const key = `${contactIndex}-${messageIndex}`;
-      if (this.dropdownsShown[key]) {
-        this.dropdownsShown = {};
-      } else {
-        this.dropdownsShown = { [key]: true };
-      }
+      this.currentDropdown = this.currentDropdown === key ? '' : key;
     },
     // Message deletion
     deleteMessage(contactIndex, messageIndex) {
       this.contacts[contactIndex].messages.splice(messageIndex, 1);
-      this.dropdownsShown = {};
+      this.currentDropdown = '';
     },
     // Get the time of the last message if sent today, otherwise, get the date
     getLastMessageTime(contact) {
@@ -261,5 +257,5 @@ createApp({
         return str;
       }
     }
-  }
+  },
 }).mount('#app');
