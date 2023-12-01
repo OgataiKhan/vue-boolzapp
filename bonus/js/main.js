@@ -298,6 +298,19 @@ createApp({
     deleteChat() {
       this.contacts.splice(this.contactIndex, 1);
       this.contactIndex = 0;
+    },
+    // Create a new conversation and add it to the contact list
+    addNewChat() {
+      const contactName = prompt('Name:');
+      const contactImg = prompt('Profile picture url:');
+      if (contactName.trim() !== '') {
+        this.contacts.unshift({
+          name: contactName,
+          avatar: contactImg,
+          visible: true,
+          messages: []
+        });
+      }
     }
   },
   mounted() {
