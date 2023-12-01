@@ -52,6 +52,11 @@ ul {
 img {
   display: block;
   width: 100%;
+  object-fit: cover;
+}
+
+input {
+  display: block;
 }
 
 header,

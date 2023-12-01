@@ -64,7 +64,7 @@
             <ul>
               <li v-for="(contact, index) in contacts" v-show="contact.visible"
                 class="person-bar contact-bar flex justify-between"
-                :class="{ 'last-contact-bar': index === contacts.length - 1, 'active-contact': index === contactIndex }"
+                :class="{ 'active-contact': index === contactIndex }"
                 role="button" @click="changeChat(index)">
                 <div class="flex">
                   <!-- Avatar -->

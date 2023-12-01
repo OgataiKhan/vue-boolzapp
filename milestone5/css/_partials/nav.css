@@ -39,6 +39,8 @@ NAVIGATION SIDEBAR
   border: 1px solid #F5F5F5;
   padding: 0.375rem 0.75rem;
   line-height: 1.5;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
 }
 
 .sidebar .contact-box {
@@ -51,12 +53,13 @@ NAVIGATION SIDEBAR
   overflow-wrap: break-word;
 }
 
-.last-contact-bar {
+.contact-bar:last-child {
   border-bottom: none;
 }
 
 .contacts-avatar {
   width: 60px;
+  height: 60px;
 }
 
 .contact-box ul li.person-bar {
