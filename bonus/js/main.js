@@ -14,6 +14,7 @@ createApp({
       newMsg: '',
       contactSearch: '',
       currentDropdown: '',
+      userStatus: '',
       // Data
       userData: {
         username: 'Sofia',
@@ -217,6 +218,7 @@ createApp({
     // Select contact
     changeChat(index) {
       this.contactIndex = index;
+      this.updateUserStatus();
     },
     // Send new message
     sendMsg() {
@@ -227,7 +229,9 @@ createApp({
           status: 'sent'
         });
         this.newMsg = '';
+        this.userStatus = 'sta scrivendo...';
         setTimeout(this.autoResponse, 1000);
+        setTimeout(this.updateUserStatus, 3000);
       }
     },
     // Get automatic response
@@ -237,6 +241,7 @@ createApp({
         message: this.randomResponses[Math.floor(Math.random() * this.randomResponses.length)],
         status: 'received'
       });
+      this.userStatus = 'online';
     },
     // Toggle message menu dropdown
     toggleDropdown(contactIndex, messageIndex) {
@@ -268,6 +273,25 @@ createApp({
       } else {
         return str;
       }
-    }
+    },
+    // Get the time (HH:mm) of the active contact's last received message, ignoring sent messages
+    getLastReceivedMessageTime() {
+      const messages = this.contacts[this.contactIndex].messages;
+      const lastReceivedMsg = messages.slice().reverse().find(msg => msg.status === 'received');
+      return lastReceivedMsg ? this.displayTime(lastReceivedMsg.date) : null;
+    },
+    // When called, update userStatus to display the time of the last received message from the active contact; if no received messages, display appropriate string
+    updateUserStatus() {
+      const lastReceivedTime = this.getLastReceivedMessageTime();
+      if (lastReceivedTime) {
+        this.userStatus = 'ultimo accesso alle ' + lastReceivedTime;
+      } else {
+        this.userStatus = 'Nessun accesso precedente';
+      }
+    },
+  },
+  mounted() {
+    // Update active contact status for the first time after mounting the application
+    this.updateUserStatus();
   },
 }).mount('#app');
