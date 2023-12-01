@@ -26,7 +26,12 @@ main > footer {
 
 .emoji,
 .audio-message {
-  padding: 0 37px;
+  width: 90px;
+}
+
+.emoji i,
+.audio-message i {
+  cursor: pointer;
 }
 
 .chat-window {
