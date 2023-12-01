@@ -233,6 +233,9 @@ createApp({
         this.userStatus = 'sta scrivendo...';
         setTimeout(this.autoResponse, 1000);
         setTimeout(this.updateUserStatus, 3000);
+        this.$nextTick(() => {
+          this.scrollToBottom();
+        });
       }
     },
     // Get automatic response
@@ -311,6 +314,11 @@ createApp({
           messages: []
         });
       }
+    },
+    // Scrolls to the bottom of the chat-window div
+    scrollToBottom() {
+      const container = this.$refs.chatwindow;
+      container.scrollTop = container.scrollHeight + 1000;
     }
   },
   mounted() {

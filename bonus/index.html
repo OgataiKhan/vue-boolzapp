@@ -123,7 +123,7 @@
           </header>
           <!-- /Header with interlocutor info -->
           <!-- Messages -->
-          <div class="chat-window flex align-center">
+          <div class="chat-window flex align-center" ref="chatwindow">
             <ul class="chat-list flex">
               <li v-for="(messageObj, index) in contacts[contactIndex].messages" class="msg"
                 :class="messageObj.status === 'sent' ? 'sent' : 'received'">
