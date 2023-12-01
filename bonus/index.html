@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Boolzapp</title>
+  <!-- Google font: Lato -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+  <!-- /Google font: Lato -->
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <!-- /Font Awesome -->
+  <!-- My css -->
+  <link rel="stylesheet" href="css/style.css">
+  <!-- /My css -->
+</head>
+
+<body>
+  <div id="app" v-cloak>
+    <div id="page-bg" class="flex justify-center align-center">
+      <div class="container flex">
+        <!-- Navigation sidebar -->
+        <div class="sidebar flex">
+          <!-- Header with user info -->
+          <header class="person-bar flex justify-between align-center">
+            <div class="flex">
+              <div class="header-avatar avatar">
+                <img :src="userData.avatar" :alt="userData.username">
+              </div>
+              <h1 class="user-details flex align-center">{{ userData.username }}</h1>
+            </div>
+            <ul class="header-icons flex">
+              <li><i class="fa-solid fa-circle-notch"></i></li>
+              <li><i class="fa-solid fa-message"></i></li>
+              <li><i class="fa-solid fa-ellipsis-vertical"></i></li>
+            </ul>
+          </header>
+          <!-- /Header with user info -->
+          <!-- Notification bar -->
+          <div class="notification-bar flex align-center">
+            <div class="notification-icon flex align-center justify-center">
+              <i class="fa-solid fa-bell-slash"></i>
+            </div>
+            <div class="notification-details flex">
+              <p>Ricevi notifiche di nuovi messaggi</p>
+              <p><a href="#">Attiva notifiche desktop</a></p>
+            </div>
+          </div>
+          <!-- /Notification bar -->
+          <!-- Chat search -->
+          <div class="chat-search-box flex align-center">
+            <label for="chat-searchbar" class="chat-search-icon">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </label>
+            <input v-model="contactSearch" type="text" id="chat-searchbar" placeholder="Cerca o inizia una nuova chat"
+              aria-label="Chat search">
+          </div>
+          <!-- /Chat search -->
+          <!-- Contacts -->
+          <div class="contact-box">
+            <ul>
+              <li v-for="(contact, index) in contacts" v-show="contact.visible"
+                class="person-bar contact-bar flex justify-between"
+                :class="{ 'active-contact': index === contactIndex }"
+                role="button" @click="changeChat(index)">
+                <div class="flex">
+                  <!-- Avatar -->
+                  <div class="contacts-avatar avatar">
+                    <img :src="contact.avatar" :alt="contact.name">
+                  </div>
+                  <!-- /Avatar -->
+                  <div class="person-details">
+                    <!-- Name -->
+                    <h3>
+                      {{ contact.name }}
+                    </h3>
+                    <!-- /Name -->
+                    <!-- Last message -->
+                    <p v-if="contact.messages.length !== 0" class="secondary-text">{{ cropMessage(contact.messages[contact.messages.length - 1].message) }}
+                    </p>
+                    <!-- /Last message -->
+                  </div>
+                </div>
+                <!-- Last message time-->
+                <p class="last-msg-time secondary-text">{{ getLastMessageTime(contact) }}</p>
+                <!-- /Last message time-->
+              </li>
+            </ul>
+          </div>
+          <!-- /Contacts -->
+        </div>
+        <!-- /Navigation sidebar -->
+        <!-- Chat -->
+        <main class="flex">
+          <!-- Header with interlocutor info -->
+          <header class="person-bar flex justify-between align-center">
+            <div class="flex">
+              <div class="header-avatar avatar">
+                <img :src="contacts[contactIndex].avatar" :alt="contacts[contactIndex].name">
+              </div>
+              <div class="person-details flex align-center">
+                <h2 class="current-contact-name">
+                  {{ contacts[contactIndex].name }}
+                </h2>
+                <p class="tertiary-text">Ultimo accesso oggi alle 12:00</p>
+              </div>
+            </div>
+            <ul class="header-icons flex">
+              <li><i class="fa-solid fa-magnifying-glass"></i></li>
+              <li><i class="fa-solid fa-paperclip"></i></li>
+              <li><i class="fa-solid fa-ellipsis-vertical"></i></li>
+            </ul>
+          </header>
+          <!-- /Header with interlocutor info -->
+          <!-- Messages -->
+          <div class="chat-window flex align-center">
+            <ul class="chat-list flex">
+              <li v-for="(messageObj, index) in contacts[contactIndex].messages" class="msg"
+                :class="messageObj.status === 'sent' ? 'sent' : 'received'">
+                <p class="msg-text"> {{ messageObj.message }}
+                </p>
+                <p class="msg-time">{{ displayTime(messageObj.date) }}</p>
+                <!-- Dropdown button & menu -->
+                <div class="dropdown-angle" role="button" @click="toggleDropdown(contactIndex, index)">
+                  <i class="fa-solid fa-angle-down"></i>
+                </div>
+                <ul class="dropdown-menu" v-show="currentDropdown === `${contactIndex}-${index}`">
+                  <li role="button">Message info</li>
+                  <li role="button" @click="deleteMessage(contactIndex, index)">Delete message</li>
+                </ul>
+                <!-- Dropdown button & menu -->
+              </li>
+            </ul>
+          </div>
+          <!-- /Messages -->
+          <!-- New message -->
+          <footer class="flex align-center">
+            <div class="emoji">
+              <i class="fa-regular fa-face-smile"></i>
+            </div>
+            <input v-model="newMsg" type="text" id="new-message-bar" placeholder="Scrivi un messaggio"
+              aria-label="New message" @keyup.enter="sendMsg()">
+            <div class="audio-message">
+              <i class="fa-solid fa-microphone"></i>
+            </div>
+          </footer>
+          <!-- /New message -->
+        </main>
+        <!-- /Chat -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Luxon -->
+  <script src="https://cdn.jsdelivr.net/npm/luxon@3.4.4/build/global/luxon.min.js"></script>
+  <!-- /Luxon -->
+  <!-- Vue js -->
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <!-- /Vue js -->
+  <!-- My js -->
+  <script src="js/main.js"></script>
+  <!-- /My js -->
+</body>
+
+</html>

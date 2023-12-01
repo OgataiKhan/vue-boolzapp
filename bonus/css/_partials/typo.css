@@ -1,0 +1,64 @@
+/* 
+********
+TYPOGRAPHY
+********
+*/
+
+body,
+h1,
+h2 {
+  font-family: 'Lato', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+h3 {
+  font-size: 1.125rem;
+  font-weight: 400;
+}
+
+header ul.header-icons li,
+.notification-bar .notification-icon,
+.emoji,
+.audio-message {
+  font-size: 1.4rem;
+}
+
+header ul.header-icons li,
+.chat-search-box .chat-search-icon {
+  color: var(--font-secondary);
+}
+
+.notification-bar .notification-icon {
+  color: var(--bg-notifications);
+}
+
+.emoji,
+.audio-message {
+  color: var(--font-new-msg-icons);
+}
+
+.secondary-text {
+  font-size: .75rem;
+  color: var(--font-secondary);
+}
+
+.tertiary-text {
+  font-size: .75rem;
+  color: var(--font-tertiary);
+}
+
+.notification-bar .notification-details a {
+  font-size: .875rem;
+  color: var(--font-tertiary);
+}
+
+.msg .msg-text {
+  font-size: .875rem;
+}
+
+.msg .msg-time {
+  text-align: right;
+  color: var(--font-secondary);
+  font-size: 10px;
+}

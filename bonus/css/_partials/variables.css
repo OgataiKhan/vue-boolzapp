@@ -1,0 +1,23 @@
+/* 
+********
+VARIABLES
+********
+*/
+
+:root {
+  --bg-upper: #009688; 
+  --bg-lower: #DBDBD3; 
+  --bg-header: #EAEAEA; 
+  --bg-chat-footer: #F3EEEA; 
+  --bg-nav: #FFFFFF;
+  --bg-notifications: #8EDAFC;
+  --bg-searchbar-container: #FAFAFA;
+  --bg-msg-sent: #D5F9BA;
+  --bg-msg-received: #FFFFFF;
+  --bg-dropdown: #FFFFFF;
+  --font-primary: #000000;
+  --font-secondary: #B1B1B1;
+  --font-tertiary: #6B7376;
+  --font-new-msg-icons: #6B7376;
+  --container-vertical-gap: 24px;
+}
