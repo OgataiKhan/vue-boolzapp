@@ -1,7 +1,7 @@
 # Boolzapp
 
 In this project I am replicating the layout and some of the functionality of the WhatsApp webapp.  
-The project will be completed over the span of three separate milestones, and all three will be preserved in the repo separately in order to show my work at various stages of the project.
+The project will be completed over the span of five separate milestones, and all five will be preserved in the repo separately in order to show my work at various stages of the project.
 
 ## Features
 
@@ -60,3 +60,54 @@ Part 2:
 1. Create getLastMessageTime method that returns nothing if no messages are present for a given contact, the time of the last message if was sent today, and the date of the last message if it was sent before today. Use Luxon to manage dates and times.
 2. Create cropMessage method that crops longer messages in order to display them in smaller spaces.
 3. Display text and time of the last message for each contact in the contact list.
+
+### Bonus features
+
+##### Add send message button
+
+While typing a message, the microphone becomes a "send" button that can be clicked to send the message.
+
+1. Use v-if and v-else to display the correct icon.  
+2. Apply v-on to send the message on click.
+
+##### Add random responses array
+
+After sending a message you will now get back a random response from a predetermined array.
+
+1. Create array of responses.  
+2. Use this.randomResponses[Math.floor(Math.random() * this.randomResponses.length)] to select a random response from the array as the text of the received message.
+
+##### Add active contact status
+
+The status of the active contact will now be displayed. "Last seen" by default, then "Writing..." right before their response arrives, then "online" for 2 seconds, then back to "last online" showing the time they sent the last message.
+
+1. Create a getLastReceivedMessageTime function that gets the time (HH:mm format) of the last message we received from the active contact, ignoring messages sent by us. Here we reuse the displayTime function we defined earlier.
+2. Create empty userStatus property.
+3. Create updateUserStatus to display the time of the last message received from the active contact. Handle the case of no received messages.
+4. Modify changeChat to run updateUserStatus at the end.
+5. Run updateUserStatus in mounted.
+6. Display the userStatus in the chat window header.
+7. Update sendMsg to set userStatus to "sta scrivendo..." immediately, then to trigger updateUserStatus after 3 seconds.
+8. Update autoResponse to set userStatus to "online" one second after sending a message. This will create the "time of last message" -> "sta scrivendo..." -> "online" -> "time of new last message" cycle that we want.
+
+##### Add delete all messages & delete chat buttons
+
+The ellipsis on the upper right will now open a dropdown allowing you to delete all messages with the active contact or the entire conversation with that contact.
+
+1. Create dropdown displayed and hidden with a v-on.
+2. Create deleteAllMsgs function that empties the messages array of the active contact. Attach it to the appropriate button with a v-on.
+3. Create deleteChat function that deletes the contact from the contacts array and sets contactIndex to 0. Attach it to the appropriate button with a v-on.
+
+##### Add "New Chat" functionality
+
+By clicking on the "plus" button above the contact list it is now possible to add a new conversation to the list after entering the new contact's name and profile pic.
+
+1. Add plus icon.
+2. Create addNewChat function that prompts the user to enter a name and an image url and unshifts (pushes to the start) the resulting contact into the contacts arrary if the name is not empty or composed only of spaces.
+
+##### Scroll to bottom of chat window after sending a new message
+
+The sendMsg function has been modified to scroll down to the bottom of the chat window after sending a new message. This doesn't happen when receiving messages, to prevent the user from being interrupted while reading older conversations.
+
+1. Create scrollToBottom function that scrolls to the bottom of the chatwindow div (selected by its ref) when called.
+2. Call the function at the end of sendMsg. Use this.$nextTick() to ensure proper timing.
