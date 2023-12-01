@@ -181,6 +181,18 @@ createApp({
             }
           ],
         }
+      ],
+      randomResponses: [
+        'Come annunciò la profezia.',
+        'Ma a quale prezzo?',
+        'E sia.',
+        'Così… siamo giunti a questo.',
+        'È per questo che il destino ci ha fatti incontrare?',
+        'Secondo gli antichi patti, eseguirò.',
+        '…esattamente come nel mio sogno!',
+        'In questa economia?',
+        'Per i poteri a me conferiti, acconsento.',
+        '…e fu allora che giunsero i lupi.'
       ]
     }
   },
@@ -222,7 +234,7 @@ createApp({
     autoResponse() {
       this.contacts[this.contactIndex].messages.push({
         date: this.getCurrentTime(),
-        message: 'ok',
+        message: this.randomResponses[Math.floor(Math.random() * this.randomResponses.length)],
         status: 'received'
       });
     },
