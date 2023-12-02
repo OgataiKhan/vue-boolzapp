@@ -20,4 +20,14 @@ VARIABLES
   --font-tertiary: #6B7376;
   --font-new-msg-icons: #6B7376;
   --container-vertical-gap: 24px;
+  --dark-mode-primary: #202E37;
+  --dark-mode-secondary: #152835;
+  --dark-mode-bg-upper: #03483E;
+  --dark-mode-bg-lower: #525252;
+  --dark-mode-bg-header: #202E37;
+  --dark-mode-font-primary: #FFFFFF;
+  --dark-mode-bg-notifications: #01293c;
+  --dark-mode-bg-input: #2E3A3D;
+  --dark-mode-bg-msg-sent: #03483E;
+  --dark-mode-bg-msg-received: #202E37;
 }

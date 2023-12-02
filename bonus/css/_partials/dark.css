@@ -1,0 +1,102 @@
+/* 
+********
+DARK MODE
+********
+*/
+
+#page-bg.dark {
+  background: linear-gradient(to bottom, var(--dark-mode-bg-upper) 145px, var(--dark-mode-bg-lower) 145px);
+}
+
+.dark,
+.dark .secondary-text,
+.dark .tertiary-text,
+.dark header ul.header-icons li i,
+.dark .chat-search-box .chat-search-icon,
+.dark #chat-searchbar,
+.dark #chat-searchbar::placeholder,
+.dark .emoji,
+.dark .audio-message,
+.dark #new-message-bar,
+.dark #new-message-bar::placeholder,
+.dark .welcome-page {
+  color: var(--dark-mode-font-primary);
+}
+
+.dark header,
+.dark main > footer {
+  background-color: var(--dark-mode-bg-header);
+}
+
+.dark #chat-searchbar,
+.dark .chat-search-box .chat-search-icon,
+.dark #new-message-bar,
+.dark .contact-box ul li.person-bar:hover,
+.dark .dropdown-menu li:hover,
+.dark .dropdown-menu-header li:hover {
+  background-color: var(--dark-mode-bg-input);
+}
+
+.dark .chat-search-box .chat-search-icon,
+.dark #chat-searchbar {
+  border: none;
+}
+
+.dark .sidebar,
+.dark .chat-search-box,
+.dark .welcome-page,
+.dark .dropdown-menu,
+.dark .dropdown-menu-header {
+  background-color: var(--dark-mode-primary);
+}
+
+.dark .notification-bar {
+  background-color: var(--dark-mode-bg-notifications);
+}
+
+.dark .notification-bar .notification-icon {
+  color: var(--dark-mode-bg-notifications);
+}
+
+.dark .contact-box ul li.person-bar.active-contact {
+  background-color: var(--dark-mode-secondary);
+}
+
+.dark .contact-bar {
+  border-bottom: 1px solid var(--dark-mode-secondary);
+}
+
+.dark .contact-bar:last-child {
+  border-bottom: none;
+}
+
+.dark main {
+  border-left: 1px solid var(--dark-mode-secondary);
+}
+
+.dark .sent {
+  background-color: var(--dark-mode-bg-msg-sent);
+}
+
+.dark .received {
+  background-color: var(--dark-mode-bg-msg-received);
+}
+
+.dark .chat-window {
+  position: relative;
+}
+
+.dark .dropdown-menu-header {
+  color: var(--dark-mode-font-primary);
+}
+
+/* Pseudo-element that changes the color of the background image */
+.dark .chat-window::before {
+  content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #0d1e26c7
+}

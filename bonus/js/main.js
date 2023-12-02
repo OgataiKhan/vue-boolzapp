@@ -18,7 +18,7 @@ createApp({
       mainHeaderDropdown: false,
       userStatus: '',
       bigFont: false,
-      darkMode: true,
+      darkMode: false,
       // Data
       userData: {
         username: 'Sofia',
@@ -305,7 +305,11 @@ createApp({
     // Delete conversation with the active contact and set contactIndex to 0
     deleteChat() {
       this.contacts.splice(this.contactIndex, 1);
-      this.contactIndex = 0;
+      if (this.contacts.length > 0) {
+        this.contactIndex = 0;
+      } else {
+        this.contactIndex = null;
+      }
     },
     // Create a new conversation and add it to the contact list
     addNewChat() {
