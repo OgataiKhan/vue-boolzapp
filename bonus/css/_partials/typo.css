@@ -22,6 +22,18 @@ h4 {
   font-weight: 400;
 }
 
+.splash-page {
+  color: #464646;
+}
+
+.splash-page .splash-icon {
+  font-size: 4rem;
+}
+
+.splash-page h6 {
+  font-size: 2.5rem;
+}
+
 header ul.header-icons li i,
 .notification-bar .notification-icon,
 .emoji,

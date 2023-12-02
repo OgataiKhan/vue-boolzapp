@@ -21,6 +21,15 @@
 <body>
   <div id="app" v-cloak>
     <div id="page-bg" class="flex justify-center align-center">
+      <div v-if="splash" class="splash-page flex justify-center align-center">
+        <div class="splash-icon">
+          <i class="fa-solid fa-comments"></i>
+        </div>
+        <h6>BoolzApp Web</h6>
+        <p>
+          <i class="fa-solid fa-lock"></i> End-to-end encrypted
+        </p>
+      </div>
       <div class="container flex">
         <!-- Navigation sidebar -->
         <div class="sidebar flex">

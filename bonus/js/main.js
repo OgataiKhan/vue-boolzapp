@@ -10,6 +10,7 @@ createApp({
   data() {
     return {
       // Utility
+      splash: true,
       contactIndex: null,
       newMsg: '',
       contactSearch: '',
@@ -354,6 +355,10 @@ createApp({
     document.addEventListener('click', this.mainHeaderDropdowClickOutside);
     // Add event listener to handle closing message dropdowns on click outside
     document.addEventListener('click', this.handleClickOutsideDynamicDropdowns);
+    // Hide splash page after one second
+    setTimeout(() => {
+      this.splash = false;
+    }, 1000);
   },
   beforeUnmount() {
     // Remove event listeners before unmount to prevent memory leaks
