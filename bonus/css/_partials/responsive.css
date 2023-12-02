@@ -28,4 +28,8 @@ RESPONSIVE
   .make-room {
     display: none;
   }
+
+  .container main {
+    border: none;
+  }
 }
