@@ -7,7 +7,7 @@ The project will be completed over the span of five separate milestones, and all
 
 - Layout with dynamically populated contact list and message lists from data arrays.
 
-![General Layout](img/screenshots/general-layout.png)
+![General Layout](screenshots/general-layout.png)
 
 - Click on a contact opens their chat history.
 
@@ -15,35 +15,35 @@ The project will be completed over the span of five separate milestones, and all
 
 - Automatic reply one second after adding a message, taken randomly from a predetermined array.
 
-![New Message](img/screenshots/new-message.png)
+![New Message](screenshots/new-message.png)
 
 - Dynamic contact search function. Typing any string in the appropriate input field will only display the contacts whose names contain that string.
 
-![Contact Search](img/screenshots/contact-search.png)
+![Contact Search](screenshots/contact-search.png)
 
 - Clicking on the down-arrow that appears when hovering over the upper right corner of a message opens a dropdown menu. Clicking on "Delete message" in that menu will delete the message.
 
-![Delete Message](img/screenshots/delete-message.png)
+![Delete Message](screenshots/delete-message.png)
 
 - Each entry in the contact list will display the text and time of the last sent or received message. Messages longer than 46 characters will be truncated. Messages sent or received on the same day will display the time, older messages will display the date.
 
-![Contact List Info](img/screenshots/contact-list-info.png)
+![Contact List Info](screenshots/contact-list-info.png)
 
 - Empty messages or messages composed entirely of spaces cannot be sent.
 
 - While typing a message, the microphone icon in the lower right will be replaced with a paper airplane "send" button. Clicking on the button will send the message.
 
-![Send Button](img/screenshots/send-button.png)
+![Send Button](screenshots/send-button.png)
 
 - Each new message displays the correct time it was sent or received.
 
 - After sending a message, the status of the active user displayed above will change to "sta scrivendo..." ("typing...") until the response arrives. Then it will change to "online" for 2 seconds, and finally it will display the time of the last messages received from that contact.
 
-![Typing](img/screenshots/typing.png)
+![Typing](screenshots/typing.png)
 
 - By clicking on the vertical ellipsis icon on the upper right and selecting the appropriate option, it is now possible to delete all messages with the active user or the contact itself.
 
-![Delete messages or contact](img/screenshots/delete-chat.png)
+![Delete messages or contact](screenshots/delete-chat.png)
 
 - Clicking on the chat bubble icon in the left header it is possible to add a new contact after specifying a name and an image path.
 
@@ -51,25 +51,25 @@ The project will be completed over the span of five separate milestones, and all
 
 - A welcome screen will be displayed on on page load or after eliminating a contact.
 
-![Welcome](img/screenshots/welcome.png)
+![Welcome](screenshots/welcome.png)
 
 - A splascheern will be displayed for 1 second on page load.
 
-![Splashscreen](img/screenshots/splashscreen.png)
+![Splashscreen](screenshots/splashscreen.png)
 
 - Clicking on the "A" icon in the left header it is possible to toggle a bigger font size.
 
 - Clicking on the moon icon in the left header it is possible to toggle dark mode.
 
-![Dark mode & bigger font](img/screenshots/dark-mode.png)
+![Dark mode & bigger font](screenshots/dark-mode.png)
 
 - The webapp is responsive. It will display in mobile mode on narrow screen sizes. Clicking on a contact will open their conversation.
 
-![Mobile contacts](img/screenshots/mobile-contacts.png)
+![Mobile contacts](screenshots/mobile-contacts.png)
 
 - While viewing a conversation in mobile mode a "back" button will appear that will bring the user back to the contact list.
 
-![Mobile chat](img/screenshots/mobile-chat.png)
+![Mobile chat](screenshots/mobile-chat.png)
 
 
 ## Workflow
