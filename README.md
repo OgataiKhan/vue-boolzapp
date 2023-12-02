@@ -37,7 +37,7 @@ The project will be completed over the span of five separate milestones, and all
 
 - Each new message displays the correct time it was sent or received.
 
-- After sending a message, the status of the active user displayed above will change to "sta scrivendo..." ("typing...") until the response arrives. Then it will change to "online" for 2 seconds, and finally it will display the time of the last messages received from that contact.
+- After sending a message, the status of the active user displayed above will change to "sta scrivendo..." ("typing...") until the response arrives. Then it will change to "online" for 2 seconds, and finally it will display the time of the last message received from that contact.
 
 ![Typing](screenshots/typing.png)
 
@@ -49,11 +49,11 @@ The project will be completed over the span of five separate milestones, and all
 
 - Adding a new message automatically scrolls to the bottom of the conversation. This will not happen for received messages.
 
-- A welcome screen will be displayed on on page load or after eliminating a contact.
+- A welcome screen will be displayed on page load or after deleting a contact.
 
 ![Welcome](screenshots/welcome.png)
 
-- A splascheern will be displayed for 1 second on page load.
+- A splashscreen will be displayed for 1 second on page load.
 
 ![Splashscreen](screenshots/splashscreen.png)
 
