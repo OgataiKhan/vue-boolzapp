@@ -32,7 +32,7 @@
       </div>
       <div class="container flex">
         <!-- Navigation sidebar -->
-        <div class="sidebar flex">
+        <div class="sidebar flex grow" :class="{ 'make-room': mobileShowChat }">
           <!-- Header with user info -->
           <header class="person-bar flex justify-between align-center">
             <div class="flex">
@@ -104,7 +104,7 @@
         </div>
         <!-- /Navigation sidebar -->
         <!-- Welcome page -->
-        <div class="welcome-page flex justify-center align-center" v-if="contactIndex === null">
+        <div v-if="contactIndex === null" class="welcome-page flex justify-center align-center vanish" :class="{ appear: mobileShowChat }">
           <div class="welcome-img">
             <img src="img/welcome.png" alt="Welcome image">
           </div>
@@ -114,8 +114,9 @@
             <p>Seleziona un contatto e inizia a chattare!</p>
           </div>
         </div>
+        <!-- /Welcome page -->
         <!-- Chat -->
-        <main class="flex" v-else>
+        <main v-else class="flex vanish" :class="{ appear: mobileShowChat }">
           <!-- Header with interlocutor info -->
           <header class="person-bar flex justify-between align-center">
             <div class="flex">
@@ -130,6 +131,7 @@
               </div>
             </div>
             <ul class="header-icons flex">
+              <li @click="mobileShowChat = false" class="display-none appear-block"><i class="fa-solid fa-arrow-left"></i></li>
               <li><i class="fa-solid fa-magnifying-glass"></i></li>
               <li><i class="fa-solid fa-paperclip"></i></li>
               <li @click.stop="mainHeaderDropdown = !mainHeaderDropdown">

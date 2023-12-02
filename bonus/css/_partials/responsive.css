@@ -1,0 +1,31 @@
+/* 
+********
+RESPONSIVE
+********
+*/
+
+.display-none {
+  display: none;
+}
+
+@media screen and (max-width: 575px) {
+  .vanish {
+    display: none;
+  }
+
+  .grow {
+    width: 100%;
+  }
+
+  .appear {
+    display: flex;
+  }
+
+  .appear-block {
+    display: block;
+  }
+
+  .make-room {
+    display: none;
+  }
+}

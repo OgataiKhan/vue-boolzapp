@@ -19,6 +19,7 @@ createApp({
       userStatus: '',
       bigFont: false,
       darkMode: false,
+      mobileShowChat: false,
       // Data
       userData: {
         username: 'Sofia',
@@ -223,6 +224,7 @@ createApp({
     changeChat(index) {
       this.contactIndex = index;
       this.updateUserStatus();
+      this.mobileShowChat = true;
     },
     // Send new message
     sendMsg() {
@@ -305,11 +307,8 @@ createApp({
     // Delete conversation with the active contact and set contactIndex to 0
     deleteChat() {
       this.contacts.splice(this.contactIndex, 1);
-      if (this.contacts.length > 0) {
-        this.contactIndex = 0;
-      } else {
-        this.contactIndex = null;
-      }
+      this.contactIndex = null;
+      this.mobileShowChat = false;
     },
     // Create a new conversation and add it to the contact list
     addNewChat() {
