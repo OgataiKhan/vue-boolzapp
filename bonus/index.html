@@ -30,7 +30,7 @@
               <div class="header-avatar avatar">
                 <img :src="userData.avatar" :alt="userData.username">
               </div>
-              <h1 class="user-details flex align-center">{{ userData.username }}</h1>
+              <h2 class="user-details flex align-center">{{ userData.username }}</h2>
             </div>
             <ul class="header-icons flex">
               <li @click="addNewChat()"><i class="fa-solid fa-plus"></i></li>
@@ -75,9 +75,9 @@
                   <!-- /Avatar -->
                   <div class="person-details">
                     <!-- Name -->
-                    <h3>
+                    <h4>
                       {{ contact.name }}
-                    </h3>
+                    </h4>
                     <!-- /Name -->
                     <!-- Last message -->
                     <p v-if="contact.messages.length !== 0" class="secondary-text">{{ cropMessage(contact.messages[contact.messages.length - 1].message) }}
@@ -94,8 +94,19 @@
           <!-- /Contacts -->
         </div>
         <!-- /Navigation sidebar -->
+        <!-- Welcome page -->
+        <div class="welcome-page flex justify-center align-center" v-if="contactIndex === null">
+          <div class="welcome-img">
+            <img src="img/welcome.png" alt="Welcome image">
+          </div>
+          <div class="welcome-text">
+            <h1>BoolzApp Web</h1>
+            <p>Invia e ricevi rapidamente messaggi BoolzApp direttamente dal tuo computer.</p>
+            <p>Seleziona un contatto e inizia a chattare!</p>
+          </div>
+        </div>
         <!-- Chat -->
-        <main class="flex">
+        <main class="flex" v-else>
           <!-- Header with interlocutor info -->
           <header class="person-bar flex justify-between align-center">
             <div class="flex">
@@ -103,9 +114,9 @@
                 <img :src="contacts[contactIndex].avatar" :alt="contacts[contactIndex].name">
               </div>
               <div class="person-details flex align-center">
-                <h2 class="current-contact-name">
+                <h3 class="current-contact-name">
                   {{ contacts[contactIndex].name }}
-                </h2>
+                </h3>
                 <p class="tertiary-text">{{ userStatus }}</p>
               </div>
             </div>
