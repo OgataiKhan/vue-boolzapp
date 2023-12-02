@@ -251,6 +251,8 @@ createApp({
     toggleDropdown(contactIndex, messageIndex) {
       const key = `${contactIndex}-${messageIndex}`;
       this.currentDropdown = this.currentDropdown === key ? '' : key;
+      // Prevent immediately closing the dropdown
+      event.stopPropagation();
     },
     // Message deletion
     deleteMessage(contactIndex, messageIndex) {
@@ -319,10 +321,43 @@ createApp({
     scrollToBottom() {
       const container = this.$refs.chatwindow;
       container.scrollTop = container.scrollHeight + 1000;
+    },
+    // Close chat header dropdown menu on click outside
+    mainHeaderDropdowClickOutside(event) {
+      if (this.$refs.mainHeaderDropdownMenu && !this.$refs.mainHeaderDropdownMenu.contains(event.target)) {
+        this.mainHeaderDropdown = false;
+      }
+    },
+    // Handle clicks outside dynamically generated message dropdowns
+    handleClickOutsideDynamicDropdowns(event) {
+      // Select dropdowns
+      if (this.currentDropdown) {
+        const dropdowns = document.querySelectorAll('.dropdown-menu');
+        let isClickInsideDropdown = false;
+        // Track whether the click is inside the dropdown
+        dropdowns.forEach((dropdown) => {
+          if (dropdown.contains(event.target)) {
+            isClickInsideDropdown = true;
+          }
+        });
+        // If the click is outside, empty currentDropdown
+        if (!isClickInsideDropdown) {
+          this.currentDropdown = '';
+        }
+      }
     }
   },
   mounted() {
     // Update active contact status for the first time after mounting the application
     this.updateUserStatus();
+    // Add event listener to handle closing the chat header dropdown menu on click outside
+    document.addEventListener('click', this.mainHeaderDropdowClickOutside);
+    // Add event listener to handle closing message dropdowns on click outside
+    document.addEventListener('click', this.handleClickOutsideDynamicDropdowns);
   },
+  beforeUnmount() {
+    // Remove event listeners before unmount to prevent memory leaks
+    document.removeEventListener('click', this.mainHeaderDropdowClickOutside);
+    document.removeEventListener('click', this.handleClickOutsideDynamicDropdowns);
+  }
 }).mount('#app');

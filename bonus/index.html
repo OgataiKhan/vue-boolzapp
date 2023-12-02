@@ -112,12 +112,14 @@
             <ul class="header-icons flex">
               <li><i class="fa-solid fa-magnifying-glass"></i></li>
               <li><i class="fa-solid fa-paperclip"></i></li>
-              <li @click="mainHeaderDropdown = !mainHeaderDropdown">
+              <li @click.stop="mainHeaderDropdown = !mainHeaderDropdown">
                 <i class="fa-solid fa-ellipsis-vertical"></i>
-                <ul v-show="mainHeaderDropdown" class="dropdown-menu-header">
+                <!-- Delete messages/chat dropdown -->
+                <ul v-show="mainHeaderDropdown" class="dropdown-menu-header" ref="mainHeaderDropdownMenu">
                   <li @click="deleteAllMsgs()" role="button">Elimina messaggi</li>
                   <li @click="deleteChat()" role="button">Elimina chat</li>
                 </ul>
+                <!-- /Delete messages/chat dropdown -->
               </li>
             </ul>
           </header>
