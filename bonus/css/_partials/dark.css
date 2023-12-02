@@ -24,7 +24,7 @@ DARK MODE
 }
 
 .dark header,
-.dark main > footer {
+.dark main>footer {
   background-color: var(--dark-mode-bg-header);
 }
 
@@ -83,20 +83,10 @@ DARK MODE
 }
 
 .dark .chat-window {
-  position: relative;
+  background-color: #0d1e26c7;
+  background-blend-mode: multiply;
 }
 
 .dark .dropdown-menu-header {
   color: var(--dark-mode-font-primary);
-}
-
-/* Pseudo-element that changes the color of the background image */
-.dark .chat-window::before {
-  content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: #0d1e26c7
 }
