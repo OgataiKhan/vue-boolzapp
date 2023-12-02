@@ -63,21 +63,21 @@ Part 2:
 
 ### Bonus features
 
-##### Add send message button
+#### Add send message button
 
 While typing a message, the microphone becomes a "send" button that can be clicked to send the message.
 
 1. Use v-if and v-else to display the correct icon.  
 2. Apply v-on to send the message on click.
 
-##### Add random responses array
+#### Add random responses array
 
 After sending a message you will now get back a random response from a predetermined array.
 
 1. Create array of responses.  
 2. Use this.randomResponses[Math.floor(Math.random() * this.randomResponses.length)] to select a random response from the array as the text of the received message.
 
-##### Add active contact status
+#### Add active contact status
 
 The status of the active contact will now be displayed. "Last seen" by default, then "Writing..." right before their response arrives, then "online" for 2 seconds, then back to "last online" showing the time they sent the last message.
 
@@ -90,7 +90,7 @@ The status of the active contact will now be displayed. "Last seen" by default, 
 7. Update sendMsg to set userStatus to "sta scrivendo..." immediately, then to trigger updateUserStatus after 3 seconds.
 8. Update autoResponse to set userStatus to "online" one second after sending a message. This will create the "time of last message" -> "sta scrivendo..." -> "online" -> "time of new last message" cycle that we want.
 
-##### Add delete all messages & delete chat buttons
+#### Add delete all messages & delete chat buttons
 
 The ellipsis on the upper right will now open a dropdown allowing you to delete all messages with the active contact or the entire conversation with that contact.
 
@@ -98,16 +98,34 @@ The ellipsis on the upper right will now open a dropdown allowing you to delete 
 2. Create deleteAllMsgs function that empties the messages array of the active contact. Attach it to the appropriate button with a v-on.
 3. Create deleteChat function that deletes the contact from the contacts array and sets contactIndex to 0. Attach it to the appropriate button with a v-on.
 
-##### Add "New Chat" functionality
+#### Add "New Chat" functionality
 
 By clicking on the "plus" button above the contact list it is now possible to add a new conversation to the list after entering the new contact's name and profile pic.
 
 1. Add plus icon.
 2. Create addNewChat function that prompts the user to enter a name and an image url and unshifts (pushes to the start) the resulting contact into the contacts arrary if the name is not empty or composed only of spaces.
 
-##### Scroll to bottom of chat window after sending a new message
+#### Scroll to bottom of chat window after sending a new message
 
 The sendMsg function has been modified to scroll down to the bottom of the chat window after sending a new message. This doesn't happen when receiving messages, to prevent the user from being interrupted while reading older conversations.
 
 1. Create scrollToBottom function that scrolls to the bottom of the chatwindow div (selected by its ref) when called.
 2. Call the function at the end of sendMsg. Use this.$nextTick() to ensure proper timing.
+
+#### Close dropdowns on click outside
+
+The dropdown menus will now close when clicking anywhere outside of them.
+
+1. Using a function, select the dropdown menu (using ref for the static dropdown and a query selector all for the dynamically generated ones). Check whether the dropdown is open.
+2. Check whether the click was inside the area of the dropdown.
+3. If the click was outside, modify the property that closes the dropdown.
+4. Add an event listener for this function to the document in mounted.
+5. Remove the event listeners before unmount.
+
+#### Display welcome message
+
+Instead of displaying the first contact by default, a welcome page will now be displayed on page load.
+
+1. Change contactIndex default value to "null".
+2. Add welcome page that only displays if contactIndex === null. Display the main in all other cases.
+3. Remove call of updateUserStatus from mounted.
