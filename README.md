@@ -5,13 +5,78 @@ The project will be completed over the span of five separate milestones, and all
 
 ## Features
 
-TBD
+- Layout with dynamically populated contact list and message lists from data arrays.
+
+![General Layout](img/screenshots/general-layout.png)
+
+- Click on a contact opens their chat history.
+
+- Possibility to add a new message to the conversation by typing it in the appropriate input field and pressing "Enter".
+
+- Automatic reply one second after adding a message, taken randomly from a predetermined array.
+
+![New Message](img/screenshots/new-message.png)
+
+- Dynamic contact search function. Typing any string in the appropriate input field will only display the contacts whose names contain that string.
+
+![Contact Search](img/screenshots/contact-search.png)
+
+- Clicking on the down-arrow that appears when hovering over the upper right corner of a message opens a dropdown menu. Clicking on "Delete message" in that menu will delete the message.
+
+![Delete Message](img/screenshots/delete-message.png)
+
+- Each entry in the contact list will display the text and time of the last sent or received message. Messages longer than 46 characters will be truncated. Messages sent or received on the same day will display the time, older messages will display the date.
+
+![Contact List Info](img/screenshots/contact-list-info.png)
+
+- Empty messages or messages composed entirely of spaces cannot be sent.
+
+- While typing a message, the microphone icon in the lower right will be replaced with a paper airplane "send" button. Clicking on the button will send the message.
+
+![Send Button](img/screenshots/send-button.png)
+
+- Each new message displays the correct time it was sent or received.
+
+- After sending a message, the status of the active user displayed above will change to "sta scrivendo..." ("typing...") until the response arrives. Then it will change to "online" for 2 seconds, and finally it will display the time of the last messages received from that contact.
+
+![Typing](img/screenshots/typing.png)
+
+- By clicking on the vertical ellipsis icon on the upper right and selecting the appropriate option, it is now possible to delete all messages with the active user or the contact itself.
+
+![Delete messages or contact](img/screenshots/delete-chat.png)
+
+- Clicking on the chat bubble icon in the left header it is possible to add a new contact after specifying a name and an image path.
+
+- Adding a new message automatically scrolls to the bottom of the conversation. This will not happen for received messages.
+
+- A welcome screen will be displayed on on page load or after eliminating a contact.
+
+![Welcome](img/screenshots/welcome.png)
+
+- A splascheern will be displayed for 1 second on page load.
+
+![Splashscreen](img/screenshots/splashscreen.png)
+
+- Clicking on the "A" icon in the left header it is possible to toggle a bigger font size.
+
+- Clicking on the moon icon in the left header it is possible to toggle dark mode.
+
+![Dark mode & bigger font](img/screenshots/dark-mode.png)
+
+- The webapp is responsive. It will display in mobile mode on narrow screen sizes. Clicking on a contact will open their conversation.
+
+![Mobile contacts](img/screenshots/mobile-contacts.png)
+
+- While viewing a conversation in mobile mode a "back" button will appear that will bring the user back to the contact list.
+
+![Mobile chat](img/screenshots/mobile-chat.png)
+
 
 ## Workflow
 
 ### Milestone 1
 
-In this milestone I recreate the graphical interface of the webapp and populare the list of contacts dynamically with Vue.js.
+In this milestone I recreate the graphical interface of the webapp and populate the list of contacts dynamically with Vue.js.
 
 JS:
 1. Use v-for to populate the contact list with the relevant data. Use v-bind to access specific properties.
@@ -90,7 +155,7 @@ The status of the active contact will now be displayed. "Last seen" by default, 
 7. Update sendMsg to set userStatus to "sta scrivendo..." immediately, then to trigger updateUserStatus after 3 seconds.
 8. Update autoResponse to set userStatus to "online" one second after sending a message. This will create the "time of last message" -> "sta scrivendo..." -> "online" -> "time of new last message" cycle that we want.
 
-#### Add delete all messages & delete chat buttons
+#### Add "delete all messages" & "delete chat" buttons
 
 The ellipsis on the upper right will now open a dropdown allowing you to delete all messages with the active contact or the entire conversation with that contact.
 
@@ -129,3 +194,30 @@ Instead of displaying the first contact by default, a welcome page will now be d
 1. Change contactIndex default value to "null".
 2. Add welcome page that only displays if contactIndex === null. Display the main in all other cases.
 3. Remove call of updateUserStatus from mounted.
+
+#### Display splash page
+
+A splash page will now be displayed for one second on page load.
+
+1. Create splash page that covers the entirety of the viewport.
+2. Use v-if to hide hide it based on the value a boolean property.
+3. Add a setTimeout to mounted that changes the value of the boolean to false after one second, hiding the splash page.
+
+#### Add font size & dark mode toggles
+
+It is now be possible to toggle font size and dark mode by clicking the relevant buttons.
+
+1. Add booleans tracking the current state.
+2. Add classes "dark" and "big-font" classes to the wrapper div based on the value of these booleans.
+3. Modify css to overwrite the default values of colors and font sizes if those classes are present.
+
+#### Make it responsive
+
+The webapp is now responsive. By default it will only show the sidebar on mobile, with the possibility to open a conversation (hiding the contact list) by clicking on a contact and then go back to the contact list by clicking on the appropriate button.
+
+1. Use css media query to hide the welcome page/chat window on mobile and grow the sidebar.
+2. Create mobileShowChat boolean property that tracks whether the chat is shown on mobile (true) or the contact list is (false).
+3. Use v-bind to hide the contact list and show the chat on mobile when the boolean is set to "false".
+4. Modify changeChat function to set mobileShowChat to "true" at the end.
+5. Create button only displayed on mobile that sets mobileShowChat to "false".
+6. Modify deleteChat() function to set mobileShowChat to "false", so that deleting a chat on mobile sends you back to the contact list.
