@@ -17,6 +17,8 @@ createApp({
       currentDropdown: '',
       mainHeaderDropdown: false,
       userStatus: '',
+      bigFont: false,
+      darkMode: true,
       // Data
       userData: {
         username: 'Sofia',

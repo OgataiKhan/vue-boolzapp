@@ -50,6 +50,10 @@ header ul.header-icons li i,
   color: var(--bg-notifications);
 }
 
+.chat-search-box {
+  font-size: 1rem;
+}
+
 .emoji,
 .audio-message {
   color: var(--font-new-msg-icons);
@@ -77,5 +81,24 @@ header ul.header-icons li i,
 .msg .msg-time {
   text-align: right;
   color: var(--font-secondary);
-  font-size: 10px;
+  font-size: 0.625rem;
+}
+
+/* Big font */
+
+.big-font,
+.big-font h2,
+.big-font h3,
+.big-font h4 {
+  font-size: 1.2rem;
+}
+
+.big-font .secondary-text,
+.big-font .tertiary-text,
+.big-font .msg .msg-text {
+  font-size: 1rem;
+}
+
+.big-font .msg .msg-time {
+  font-size: .875rem;
 }

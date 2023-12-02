@@ -20,7 +20,7 @@
 
 <body>
   <div id="app" v-cloak>
-    <div id="page-bg" class="flex justify-center align-center">
+    <div id="page-bg" class="flex justify-center align-center" :class="{ dark: darkMode, 'big-font': bigFont }">
       <div v-if="splash" class="splash-page flex justify-center align-center">
         <div class="splash-icon">
           <i class="fa-solid fa-comments"></i>
@@ -42,9 +42,9 @@
               <h2 class="user-details flex align-center">{{ userData.username }}</h2>
             </div>
             <ul class="header-icons flex">
-              <li @click="addNewChat()"><i class="fa-solid fa-plus"></i></li>
-              <li><i class="fa-solid fa-circle-notch"></i></li>
-              <li><i class="fa-solid fa-message"></i></li>
+              <li @click="bigFont = !bigFont"><i class="fa-solid fa-font"></i></li>
+              <li @click="darkMode = !darkMode"><i class="fa-solid fa-moon"></i></li>
+              <li @click="addNewChat()"><i class="fa-solid fa-message"></i></li>
               <li><i class="fa-solid fa-ellipsis-vertical"></i></li>
             </ul>
           </header>
