@@ -354,8 +354,6 @@ createApp({
     }
   },
   mounted() {
-    // Update active contact status for the first time after mounting the application
-    // this.updateUserStatus();
     // Add event listener to handle closing the chat header dropdown menu on click outside
     document.addEventListener('click', this.mainHeaderDropdowClickOutside);
     // Add event listener to handle closing message dropdowns on click outside
