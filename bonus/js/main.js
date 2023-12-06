@@ -226,15 +226,10 @@ createApp({
       this.updateUserStatus();
       this.mobileShowChat = true;
     },
-    // Send new message
-    sendMsg() {
+    // Handle sending a new message and everything that happens as a result
+    handleSendMsg() {
       if (this.newMsg.trim() !== '') {
-        this.contacts[this.contactIndex].messages.push({
-          date: this.getCurrentTime(),
-          message: this.newMsg,
-          status: 'sent'
-        });
-        this.newMsg = '';
+        this.sendMsg();
         this.userStatus = 'sta scrivendo...';
         setTimeout(this.autoResponse, 1000);
         setTimeout(this.updateUserStatus, 3000);
@@ -242,6 +237,15 @@ createApp({
           this.scrollToBottom();
         });
       }
+    },
+    // Send message
+    sendMsg() {
+      this.contacts[this.contactIndex].messages.push({
+        date: this.getCurrentTime(),
+        message: this.newMsg,
+        status: 'sent'
+      });
+      this.newMsg = '';
     },
     // Get automatic response
     autoResponse() {

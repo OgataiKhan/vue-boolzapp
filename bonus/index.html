@@ -173,10 +173,10 @@
               <i class="fa-regular fa-face-smile"></i>
             </div>
             <input v-model="newMsg" type="text" id="new-message-bar" placeholder="Scrivi un messaggio"
-              aria-label="New message" @keyup.enter="sendMsg()">
+              aria-label="New message" @keyup.enter="handleSendMsg()">
             <div class="audio-message flex justify-center">
               <i v-if="newMsg === ''" class="fa-solid fa-microphone"></i>
-              <i @click="sendMsg()" v-else class="fa-solid fa-paper-plane"></i>
+              <i @click="handleSendMsg()" v-else class="fa-solid fa-paper-plane"></i>
             </div>
           </footer>
           <!-- /New message -->
