@@ -181,7 +181,7 @@ The sendMsg function has been modified to scroll down to the bottom of the chat 
 
 The dropdown menus will now close when clicking anywhere outside of them.
 
-1. Using a function, select the dropdown menu (using ref for the static dropdown and a query selector all for the dynamically generated ones). Check whether the dropdown is open.
+1. Using a function, select the dropdown menu (using ref). Check whether the dropdown is open.
 2. Check whether the click was inside the area of the dropdown.
 3. If the click was outside, modify the property that closes the dropdown.
 4. Add an event listener for this function to the document in mounted.
