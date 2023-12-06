@@ -342,7 +342,7 @@ createApp({
     handleClickOutsideDynamicDropdowns(event) {
       // Select dropdowns
       if (this.currentDropdown) {
-        const dropdowns = document.querySelectorAll('.dropdown-menu');
+        const dropdowns = this.$refs.messageDropdowns;
         let isClickInsideDropdown = false;
         // Track whether the click is inside the dropdown
         dropdowns.forEach((dropdown) => {

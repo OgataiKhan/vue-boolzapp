@@ -158,7 +158,7 @@
                 <div class="dropdown-angle" role="button" @click="toggleDropdown(contactIndex, index)">
                   <i class="fa-solid fa-angle-down"></i>
                 </div>
-                <ul class="dropdown-menu" v-show="currentDropdown === `${contactIndex}-${index}`">
+                <ul class="dropdown-menu" ref="messageDropdowns" v-show="currentDropdown === `${contactIndex}-${index}`">
                   <li role="button">Message info</li>
                   <li role="button" @click="deleteMessage(contactIndex, index)">Delete message</li>
                 </ul>
